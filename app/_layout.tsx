@@ -1,24 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+// app/_layout.tsx
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Tabs } from "expo-router";
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: "#FFFFFF",
+          borderTopWidth: 1,
+          borderTopColor: "#EFE7C9",
+          height: 64,
+          shadowColor: "#000",
+          shadowOpacity: 0.1,
+          shadowOffset: { width: 0, height: -3 },
+          shadowRadius: 10,
+        },
+        tabBarActiveTintColor: "#C6A44A",
+        tabBarInactiveTintColor: "#999",
+        headerShown: false,
+      }}
+    >
+      <Tabs.Screen
+        name="(tabs)/Announcements"
+        options={{ title: "Announcements", tabBarLabel: "Home" }}
+      />
+      <Tabs.Screen
+        name="(tabs)/Members"
+        options={{ title: "Members", tabBarLabel: "Members" }}
+      />
+      <Tabs.Screen
+        name="(tabs)/Events"
+        options={{ title: "Events", tabBarLabel: "Events" }}
+      />
+      <Tabs.Screen
+        name="(tabs)/Donations"
+        options={{ title: "Donations", tabBarLabel: "Donations" }}
+      />
+      <Tabs.Screen
+        name="(tabs)/Sacraments"
+        options={{ title: "Sacraments", tabBarLabel: "Sacraments" }}
+      />
+    </Tabs>
   );
 }
