@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { View, Text, ScrollView, ActivityIndicator } from "react-native";
 import { getAnnouncements, Announcement } from "../../services/announcements";
+import { useAuth } from "../../context/AuthContext";
 
 export default function AnnouncementsScreen() {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const { user } = useAuth();
+
   useEffect(() => {
     const loadAnnouncements = async () => {
+      if (!user) return;
       try {
         setLoading(true);
         const data = await getAnnouncements();
@@ -20,7 +24,7 @@ export default function AnnouncementsScreen() {
     };
 
     loadAnnouncements();
-  }, []);
+  }, [user]);
 
   return (
     <ScrollView className="flex-1 bg-[#FAFAF8] p-4">

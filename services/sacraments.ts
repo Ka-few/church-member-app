@@ -8,6 +8,6 @@ export interface Sacrament {
 }
 
 export const getSacraments = async (): Promise<Sacrament[]> => {
-  const res = await api.get("/sacraments");
+  const res = await api.get("/sacraments/");
   return res.data;
 };

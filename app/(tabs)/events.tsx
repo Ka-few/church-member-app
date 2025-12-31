@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View, ActivityIndicator } from "react-native";
 import { getEvents, Event } from "../../services/events";
+import { useAuth } from "../../context/AuthContext";
 
 export default function EventsScreen() {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const { user } = useAuth();
+
   useEffect(() => {
+    if (!user) return;
     getEvents()
       .then(setEvents)
+      .catch((err) => console.error("Failed to fetch events", err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [user]);
 
   if (loading) {
     return <ActivityIndicator className="mt-10" />;

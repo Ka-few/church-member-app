@@ -9,6 +9,6 @@ export interface Event {
 }
 
 export const getEvents = async (): Promise<Event[]> => {
-  const res = await api.get("/events");
+  const res = await api.get("/events/");
   return res.data;
 };

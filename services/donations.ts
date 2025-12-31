@@ -8,6 +8,6 @@ export interface Donation {
 }
 
 export const getDonations = async (): Promise<Donation[]> => {
-  const res = await api.get("/donations");
+  const res = await api.get("/donations/");
   return res.data;
 };

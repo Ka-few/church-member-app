@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { getSacraments, Sacrament } from "../../services/sacraments";
+import { useAuth } from "../../context/AuthContext";
 
 export default function SacramentsScreen() {
   const [sacraments, setSacraments] = useState<Sacrament[]>([]);
 
+  const { user } = useAuth();
+
   useEffect(() => {
-    getSacraments().then(setSacraments);
-  }, []);
+    if (!user) return;
+    getSacraments()
+      .then(setSacraments)
+      .catch((err) => console.error("Failed to fetch sacraments", err));
+  }, [user]);
 
   return (
     <ScrollView className="bg-[#FAFAF8] p-4">
