@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "church-member-app",
-    "slug": "church-member-app",
+    "slug": "st-michael-church-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.frankzonedevs.stmichaelchurchapp"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4bdffad3-d971-462f-80c9-a563aaddfa97"
+      }
+    },
+    "owner": "frankzonedevs"
   }
 }
