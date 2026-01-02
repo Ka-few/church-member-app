@@ -7,9 +7,10 @@
     "icon": "./assets/images/icon.png",
     "scheme": "churchmemberapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.frankzonedevs.stmichaelchurchapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,8 +19,7 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
+      
       "package": "com.frankzonedevs.stmichaelchurchapp"
     },
     "web": {
@@ -43,8 +43,8 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
-    },
+      "reactCompiler": false
+      },
     "extra": {
       "router": {},
       "eas": {
